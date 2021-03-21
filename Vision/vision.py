@@ -9,18 +9,13 @@ hour = int(datetime.datetime.now().hour)
 
 if hour>=0 and hour<12:
    spk.speak("Good morning Sir...")
-elif hour>=12 and hour<18:
+elif hour>=12 and hour<17:
    spk.speak("Good Afternoon sir...")
 else :
    spk.speak("Good Evening Sir ")
-
-spk.speak("Vision at your service...What can i do for you ?")
     
 
-def launchApp(app):
-	if app == 'exit' :
-		spk.speak("Good bye sir..have a nice day...")
-		exit()
+def launchApp(app):	
 	spk.speak("Launching " + app)
 	exit_stat = os.system(app)
 	if not exit_stat :
@@ -31,12 +26,21 @@ def launchApp(app):
 
 
 while True:
-	spk.speak("What can i do for you sir..?")
-	r = sr.Recognizer()
-	mic = sr.Microphone()
-	with mic as source:
-		r.adjust_for_ambient_noise(source)
-		audio = r.listen(source)
-	inst = r.recognize_google(audio)
-	launchApp(inst)
+	try:
+		spk.speak("Vision at your service...What can i do for you sir ?")
+		r = sr.Recognizer()
+		mic = sr.Microphone()
+		with mic as source:
+			r.adjust_for_ambient_noise(source, duration=0.8)
+			audio = r.listen(source)
+		inst = r.recognize_google(audio)
+		if inst == "exit":
+			spk.speak("Good bye sir..have a nice day...")
+			break
+			exit()
+		launchApp(inst)
+	except:
+		spk.speak("Sorry sir, i can not understand what you are saying.")
+
+	
 		
