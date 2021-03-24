@@ -30,7 +30,6 @@ def launchApp(app):
 def vision_body():
 	while 'True':
 		try:
-			greet()
 			spk.speak("Vision at your service...What can i do for you sir ?")
 			r = sr.Recognizer()
 			mic = sr.Microphone()
@@ -46,6 +45,7 @@ def vision_body():
 			spk.speak("Sorry sir, i can not understand what you are saying.")
 
 def sayonara():
+	greet()
 	y = multiprocessing.Process(target=vision_body, args=())
 	y.start()
 	while True:
