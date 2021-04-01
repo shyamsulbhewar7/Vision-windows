@@ -1,0 +1,33 @@
+pip install wheel
+pip install pipwin
+pip install PyAudio
+os, pyttsx3, datetime ,wikipedia, webbrowser, libspeak1
+ps aux | grep -i apt
+
+sudo rm /var/lib/dpkg/lock-frontend---to remove lock file error
+{--for port audio--
+First we need to install portaudio modules: sudo apt-get install libasound-dev
+
+Download the portaudio archive from: http://files.portaudio.com/download.html
+
+Unzip the archive: tar -zxvf [portaudio.tgz]
+
+Enter the directory, then run: ./configure && make
+
+Install: sudo make install
+
+And finally: sudo pip install pyaudio
+
+Check the version of pyaudio, it should be 0.2.9
+}
+
+>>> import os
+>>> pth=os.popen('dir /b/s filename.ext').read()
+pip install --upgrade setuptools--for c++ problem
+ps -aux | grep vision
+
+{That was the problem, I then uninstalled the jack2d by running
+
+sudo apt-get remove --auto-remove jack
+Then restarted the system, and then ran
+jack_control  stop}
