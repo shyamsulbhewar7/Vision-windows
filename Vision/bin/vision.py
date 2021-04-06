@@ -19,8 +19,10 @@ def greet():
 	   sayonara = "Good bye sir..have a nice day..."
 	elif hour>=12 and hour<17:
 	   spk.speak("Good Afternoon sir...")
+	   sayonara = "Good bye sir...see you again later.."
 	else :
 	   spk.speak("Good Evening Sir ")
+	   sayonara = "Good night sir..have sweet dreams..!"
     
 def launchApp(app):	
 	spk.speak("Launching " + app)
@@ -62,7 +64,7 @@ def Key_Controls():
 	    if keyboard.read_key() == "q":
 	        ans = input("Do you really want to quit ? (yes/no) ")
 	        if 'yes' in ans:
-	        	spk.speak("Good bye sir..have a nice day...")
+	        	spk.speak(sayonara)
 	        	y.terminate()
 	        	sys.exit()
 
