@@ -23,16 +23,7 @@ def greet():
 	else :
 	   spk.speak("Good Evening Sir ")
 	   sayonara = "Good night sir..have sweet dreams..!"
-    
-def launchApp(app):	
-	spk.speak("Launching " + app)
-	exit_stat = os.system(app)
-	if not exit_stat :
-		spk.speak(app + " launched successfully....")
-	else: 
-		spk.speak("Sorry sir , Something is wrong! Try again")
-		print("Something is wrong! Try again")
-
+    		
 def vision_body(name,voice):
 	global engine
 	engine = spk.init()
@@ -49,9 +40,9 @@ def vision_body(name,voice):
 			if inst == "exit":
 				spk.speak(sayonara)
 				break
-				sys.exit()
 			else:
-				launchApp(inst)
+				spk.speak("Launching " + inst)
+				os.system("python C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\bin\\set_path.py" + " " + inst)
 		except:
 			spk.speak("Sorry sir, i can not understand what you are saying.")
 
