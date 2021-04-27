@@ -7,9 +7,11 @@ import speech_recognition as sr
 import keyboard
 import multiprocessing
 import sys
-
+from translate_change_lang import *
+voicess=["HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0","HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0","HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\MSTTS_V110_hiIN_HemantM","HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\MSTTS_V110_hiIN_KalpanaM"]
 d = {'name':"Vision",
-'en_voice_id':"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0"}
+'en_voice_id':voicess[0],
+'lang':'en'}
 
 def greet():
 	global sayonara
@@ -23,14 +25,16 @@ def greet():
 	else :
 	   spk.speak("Good Evening Sir ")
 	   sayonara = "Good night sir..have sweet dreams..!"
-    		
-def vision_body(name,voice):
+def vision_body(name,voice,lang):
 	global engine
 	engine = spk.init()
 	engine.setProperty('voice', voice)
 	while 'True':
 		try:
-			spk.speak(name + "at your service...What can i do for you sir ?")
+			if lang!='en':
+				spk.speak(translate_text(name + "at your service...What can i do for you sir ?",lang))
+			else:
+				spk.speak(name + "at your service...What can i do for you sir ?")
 			r = sr.Recognizer()
 			mic = sr.Microphone()
 			with mic as source:
@@ -41,15 +45,21 @@ def vision_body(name,voice):
 				spk.speak(sayonara)
 				break
 			else:
-				spk.speak("Launching " + inst)
+				if lang!='en':
+					spk.speak(translate_text("Launching " + inst,lang))
+				else:
+					spk.speak("Launching " + inst)
 				os.system("python C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\bin\\set_path.py" + " " + inst)
 		except:
-			spk.speak("Sorry sir, i can not understand what you are saying.")
-
+			if lang!='en':
+				spk.speak(translate_text("Sorry sir, i can not understand what you are saying.",lang))
+			else:
+				spk.speak("Sorry sir, i can not understand what you are saying.")
 def Key_Controls():
 	greet()
 	global y
-	y = multiprocessing.Process(target=vision_body, args=(d['name'],d['en_voice_id'],))
+	global d
+	y = multiprocessing.Process(target=vision_body, args=(d['name'],d['en_voice_id'],d['lang']))
 	y.start()
 	while True:
 	    if keyboard.read_key() == "q":
@@ -58,14 +68,27 @@ def Key_Controls():
 	        	spk.speak(sayonara)
 	        	y.terminate()
 	        	sys.exit()
-
 	    if keyboard.read_key() == "v":
 	    	y.terminate()
-	    	if d['name'] == 'Vision':
-	    		d['en_voice_id'] = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0"
+	    	if d['name'] == 'Vision' and 'EN-US' in d['en_voice_id']:
+	    		d['en_voice_id'] = voicess[1]
 	    		d['name'] = "Wanda"
-	    	else:
-	    		d['en_voice_id'] = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_DAVID_11.0"
+	    	elif d['name'] == 'Wanda' and 'EN-US' in d['en_voice_id']:
+	    		d['en_voice_id'] = voicess[0]
 	    		d['name'] = "Vision"
-	    	y = multiprocessing.Process(target=vision_body, args=(d['name'],d['en_voice_id'],))
+	    	elif d['name'] == 'Wanda' and 'hiIN' in d['en_voice_id']:
+	    		d['en_voice_id'] = voicess[2]
+	    		d['name'] = "Vision"
+	    	elif d['name'] == 'Vision' and 'hiIN' in d['en_voice_id']:
+	    		d['en_voice_id'] = voicess[3]
+	    		d['name'] = "Wanda"
+	    	y = multiprocessing.Process(target=vision_body, args=(d['name'],d['en_voice_id'],d['lang']))
+	    	y.start()
+	    if keyboard.read_key() == "l":
+	    	y.terminate()
+	    	if d['lang']=='en':
+	    		d=change_lang('Hindi')
+	    	else:
+	    		d=change_lang('English')
+	    	y = multiprocessing.Process(target=vision_body, args=(d['name'],d['en_voice_id'],d['lang']))
 	    	y.start()
