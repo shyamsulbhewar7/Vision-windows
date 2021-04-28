@@ -1,7 +1,6 @@
 import pyttsx3
 engine = pyttsx3.init()
 
-engine.say('HI hello')
 # Voice IDs pulled from engine.getProperty('voices')
 # These will be system specific
 hi_voice_id_f = "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\MSTTS_V110_hiIN_KalpanaM"
@@ -16,5 +15,5 @@ engine.say('हैलो ... मैं vision हूं')
 engine.setProperty('voice', hi_voice_id_f)
 engine.say('नमस्ते...')
 engine.say('हाय ... मैं wanda हूं')
-engine.say('HI hello')
+
 engine.runAndWait()
