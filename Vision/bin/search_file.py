@@ -8,7 +8,7 @@ def get_index(inst):
 	return w2n.word_to_num(inst)
 
 def open_file(inpt):
-	os.startfile('"{pth}"'.format(pth=y[inpt]))
+	os.popen('start /wait "{pth}"'.format(pth=y[inpt]))
 
 def get_response():
 	spk.speak("Which file shall i open for you sir ?")

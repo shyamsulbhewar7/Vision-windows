@@ -13,4 +13,4 @@ y=search_any_file('"sss aaa"')
 for z in range(len(y[:-1])):
 	print(z," = ",y[z])
 inpt=int(input("Enter number of path to open file\n"))
-os.startfile('"{pth}"'.format(pth=y[inpt]))
+os.popen('start /wait "{pth}"'.format(pth=y[inpt]))

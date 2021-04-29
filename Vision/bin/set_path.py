@@ -21,11 +21,11 @@ def launch(app):#Launching app using path in the pth file
 			pth=i[:-1]
 			break
 			f.close()
-	os.startfile("{pth}".format(pth=pth))
+	os.popen("start /wait {pth}".format(pth=pth))
 
 app= sys.argv[1] #App to open
 try:# cheking for the environment variable if found launching directly
-	os.startfile("{pth}".format(pth=app))
+	os.popen("start /wait {pth}".format(pth=app))
 	spk.speak(app + " launched successfully....")
 except:#if not found environment variable then
 	try:# launching app by using path in pth file
