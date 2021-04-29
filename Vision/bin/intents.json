@@ -33,7 +33,52 @@
 		{
 			"tag": "launchapp",
 			"patterns": ["Open the notepad", "Launch the notepad","open sublime text 3","launch sublime text 3","open paint","launch paint","open firefox","launch firefox","run notepad","run command prompt","run quickheal","open quickheal","run a vlc","launch camera"],
-			"responses": ["python set_path.py"]
+			"responses": ["python C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\bin\\set_path.py"]
+		},
+		{
+			"tag": "translate",
+			"patterns": ["translate","translate my name is prasad to hindi","translate the text","translate in hindi","translate to japanese","translate to french","translate to english","translate from english","vision translate","wanda translate","vision translate to hindi","name in hindi","work in spanish","love in japanese","secret in french","translate from english to french","translate german to polish","translate beatiful to german","translate language","how to write pen in germen","how to write name in japanese"],
+			"responses": ["python C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\bin\\translate.py"]
+		},
+		{
+			"tag": "add-remove",
+			"patterns": ["inform me about git", "give information on git", "give information about git","inform about notepad","Give information about notepad","inform me about notepad","inform me about chrome","information on firefox","upgrade chrome","upgrade firefox","vision upgrade notepad","wanda upgrade sublime text 3","vision upgrade net-tools","wanda upgrade keras","chitti upgrade putty","upgrade","vision upgrade vision","upgrade google chrome","upgrade flash player acive x","upgrade mozilla firefox","update chrome","update firefox","vision update notepad","wanda update sublime text 3","vision update net-tools","wanda update keras","chitti update putty","update","vision update vision","update google chrome","update flash player acive x","update mozilla firefox","remove chrome","remove firefox","vision remove notepad","wanda remove sublime text 3","vision remove net-tools","wanda remove keras","chitti remove putty","remove","vision remove vision","remove google chrome","remove flash player acive x","remove mozilla firefox","uninstall chrome","uninstall firefox","vision uninstall notepad","wanda uninstall sublime text 3","vision uninstall net-tools","wanda uninstall keras","chitti uninstall putty","uninstall","vision uninstall vision","uninstall google chrome","uninstall flash player acive x","uninstall mozilla firefox","install chrome","install firefox","vision install notepad","wanda install sublime text 3","vision install net-tools","wanda install keras","chitti install putty","install","vision install vision","install google chrome","install flash player acive x","install mozilla firefox"],
+			"responses": ["python C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\bin\\add-remove.py"]
+		},
+		{
+			"tag": "searchdoc",
+			"patterns": ["search folder python","search directory photos","look for guns","search abc dot txt","search excel file students dot xlsx","look for excel file student data","search for myresume","search word file myresume","look for text file file","search for csv file","find me a word file","find me a folder named client","look for file abc dot pdf","search file horse dot pdf","file abc","directory abc","look for directory pictures","search file abc dot txt","search file links","search folder prasad","search folder mark","search folder smita","will you please search vision","vision search file project","wanda search file translate","vision search folder folder","search folder","serach file","look for file sample","look for file saurabh","search directory export","search directory files","search dikrectory bin","search directory lib","look for folder vision","look for folder desktop", "find me chrome dot exe","find me list dot txt","find me videos","find me music","find me song dot mp3","find me movie dot mp4","look for avengers dot mkv","look for prasad dot png","search photo dot jpg","find family dot jpeg","search newfolder","file","folder"],
+			"responses": ["python C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\bin\\search_file.py"]
+		},
+		{
+			"tag": "jokes",
+			"patterns": ["wanda search file abc dot txt","vision search file clear dot pdf","tell me a joke","will you please tell me a joke","joke","joke please","i would like to listen a joke","i would like to hear a joke","can you tell me a joke","crack a joke","make me laugh","care to tell a joke","tell me a joke","laugh","laugh out loud", "LOL"],
+			"responses": ["python C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\bin\\jokes.py"]
+		},
+		{
+			"tag": "readpdf",
+			"patterns": ["read pdf","read pdf data structures","read pdf greetings","read pdf abc","read pdf file math","read pdf file science","vision read pdf xyz","vision read pdf chemistry dot pdf","wanda read file translate dot pdf","read pdf harry potter 1 dot pdf","wanda read file sherelock dot pdf","read file RPL lab manuals dot pdf", "read pdf rintro","read file cryptography dot pdf"],
+			"responses": ["python C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\bin\\reading.py"]
+		},
+		{
+			"tag": "dream",
+			"patterns": ["do you sleep","do you dream","do you take rest","can you sleep","do you need sleep","do you have nightmares","sweet dreams"],
+			"responses": ["i like to take small breaks..It may not make me human but it definitely reduces the energy crisis","I sometimes dream","I like to have frequent breaks to perform better"]
+		},
+		{
+			"tag": "general",
+			"patterns": ["what is your favourite colour","what is your favourite animal","which bird do you like"],
+			"responses": ["I like blue colour...Blue whales are blue...what do you think","My favourite animal is blue whale...it has blue colour","Blue jay is my favourite bird... it has blue colour...i like blue whales...","All blue...."]
+		},
+		{
+			"tag": "system",
+			"patterns": ["shutdown pc","shutdown computer","power off laptop","power off computer","power off pc","Reboot pc","restart my computer","vision restart laptop","wanda shut down my computer","shut down","power off","restart","reboot"],
+			"responses": ["python C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\bin\\system_controls.py"]
+		},
+		{
+			"tag": "quotes",
+			"patterns": ["quote life","inspirational quote","tell some good thoughts","tell me a quote","do you know any quotes","tell me some great thoughts","quote","generate quote","quote the famous thought","quote someone famous","vision quote someone","wanda quote someone famous","chitti quote please","nila tell me a quote","do you speak quotes"],
+			"responses": ["python C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\bin\\quotes.py"]
 		}
 
 	]

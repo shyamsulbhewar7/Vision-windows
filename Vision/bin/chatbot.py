@@ -10,23 +10,23 @@ import os
 
 lemmatizer = WordNetLemmatizer()
 
-intents = json.loads(open('intents.json').read())
+intents = json.loads(open("C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\bin\\intents.json").read())
 
-words = pickle.load(open("H:\\Vision-windows\\Vision\\models\\words.pkl", 'rb'))
-classes = pickle.load(open("H:\\Vision-windows\\Vision\\models\\classes.pkl", 'rb'))
-model = load_model("H:\\Vision-windows\\Vision\\models\\chatbot_model.h5")
+words = pickle.load(open("C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\models\\words.pkl", 'rb'))
+classes = pickle.load(open("C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\models\\classes.pkl", 'rb'))
+model = load_model("C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\models\\chatbot_model.h5")
 
 def clean_up(sentence):
 	sen_words = nltk.word_tokenize(sentence)
 	sen_words = [lemmatizer.lemmatize(word) for word in sen_words]
 	return sen_words
 
-# def sop_tag(sentence):
+# def pos_tag(sentence):
 # 	pos_list = []
-# 	tokens = clean_up(sentence)
-# 	print(tokens)
+# 	tokens = nltk.word_tokenize(sentence)
 # 	for w in tokens:
 # 		pos_list.extend(nltk.pos_tag([w]))
+
 # 	return pos_list
 
 def bag_of_words(sentence):
@@ -67,10 +67,50 @@ def run(msg):
 		os.system(res + " " + cmd[-1])
 		return 0
 
+	elif ints[0]['intent'] == "add-remove":
+		res = get_responses(ints, intents)
+		if "install" in msg:
+			ind = msg.index("install")
+			process = "install"
+			app = msg[ind + 8:]
+		elif "uninstall" in msg:
+			ind = msg.index("uninstall")
+			process = "uninstall"
+			app = msg[ind + 10:]
+		elif "remove" in msg:
+			ind = msg.index("remove")
+			process = "uninstall"
+			app = msg[ind + 7:]
+		elif "update" in msg:
+			ind = msg.index("update")
+			process = "update"
+			app = msg[ind + 7:]
+		elif "upgrade" in msg:
+			ind = msg.index("upgrade")
+			process = "update"
+			app = msg[ind + 8:]
+		elif "inform" in msg:
+			process = "info"
+			app = list(map(str,msg.split(" ")))[-1]
+
+		os.system("vision " + process + " " + app)
+		return 0
+
+	elif ints[0]['intent'] == "jokes":
+		res = get_responses(ints, intents)
+		os.system(res)
+		return 0
+
+	elif ints[0]['intent'] == "quotes":
+		res = get_responses(ints, intents)
+		os.system(res)
+		return 0
+
 	elif ints[0]['intent'] == "goodbye":
 		res = get_responses(ints, intents)
 		spk.speak(res)
 		return 1
+
 
 	else:
 		res = get_responses(ints, intents)

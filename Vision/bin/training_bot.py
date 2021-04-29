@@ -29,8 +29,8 @@ words = [lemmatizer.lemmatize(word) for word in words if word not in punctuation
 words = sorted(set(words))
 classes = sorted(set(classes))
 
-pickle.dump(words, open("H:\\Vision-windows\\Vision\\models\\words.pkl", 'wb'))
-pickle.dump(classes, open("H:\\Vision-windows\\Vision\\models\\classes.pkl", 'wb'))
+pickle.dump(words, open("C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\models\\words.pkl", 'wb'))
+pickle.dump(classes, open("C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\models\\classes.pkl", 'wb'))
 
 training = []
 output = [0] * len(classes)
@@ -63,7 +63,7 @@ sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
-model.save("H:\\Vision-windows\\Vision\\models\\chatbot_model.h5", hist)
+model.save("C:\\Users\\POOJA\\Desktop\\Vision\\Vision-windows\\Vision\\models\\chatbot_model.h5", hist)
 
 print('Done')
 
