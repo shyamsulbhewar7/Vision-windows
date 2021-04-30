@@ -1,6 +1,5 @@
 from youtubesearchpython import VideosSearch
 import sys
-import pyttsx3 as spk
 
 def get_results(show,lim):
 	results = []
@@ -31,5 +30,4 @@ def show_results(show,lim):
 show = sys.argv[1]
 lim = sys.argv[2]
 
-spk.speak("Here is  the result of youtube search")
 show_results(show,lim)

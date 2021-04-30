@@ -2,12 +2,12 @@
 	"intents": [
 		{
 			"tag": "greetings",
-			"patterns": ["hello","hey","hi","greetings","whats up","how is it going","hey vision","hey wanda","hello vision","hello wanda","hi vision","hi wanda"],
+			"patterns": ["hello","hey","hi","greetings","good evening vision","good afternoon vision","good morning","whats up","how is it going","hey vision","hey wanda","hello vision","hello wanda","hi vision","hi wanda"],
 			"responses": ["hello sir","hi sir","greetings sir..."]
 		},
 		{
 			"tag": "goodbye",
-			"patterns": ["bye","goodbye","see you later","i am leaving","exit","quit","see ya","see you","good day","have a nice day","have sweet dreams","go away","thank you for your service"],
+			"patterns": ["bye","goodbye","see you later","i am leaving","good night","exit","quit","see ya","see you","good day","have a nice day","have sweet dreams","go away","thank you for your service"],
 			"responses": ["Good bye sir","Good bye sir..have a nice day...","Good bye sir...see you again later..","Have a nice day sir","See you later","I will be waiting to serve you again"]
 		},
 		{

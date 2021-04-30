@@ -6,9 +6,7 @@ text = sys.argv[1]
 
 dl = sys.argv[1]
 
-sl = sys.argv[2]
-
-newtext = tl.translate_text(text,dl,sl)
+newtext = tl.translate_text(text,dl)
 
 print(newtext)
 spk.speak(newtext)
